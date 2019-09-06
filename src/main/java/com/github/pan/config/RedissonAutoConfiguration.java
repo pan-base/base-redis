@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.github.pan.redisson.limit.RedissonRateLimiter;
 import com.github.pan.redisson.lock.RedissonDistributedLocker;
 
 @Configuration
@@ -33,5 +34,10 @@ public class RedissonAutoConfiguration {
 	@Bean
 	public RedissonDistributedLocker getRedissonDistributedLocker(RedissonClient client) {
 		return new RedissonDistributedLocker(client);
+	}
+	
+	@Bean
+	public RedissonRateLimiter getRedissonRateLimiter(RedissonClient client) {
+		return new RedissonRateLimiter(client);
 	}
 }
