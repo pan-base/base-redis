@@ -16,7 +16,7 @@ import com.github.pan.redisson.lock.RedissonDistributedLocker;
 @Configuration
 @ConditionalOnProperty(name = "pan.redisson.enabled", matchIfMissing = false)
 public class RedissonAutoConfiguration {
-	@Value("${pan.redisson.configname:'redisson-config.yml'}")
+	@Value("${pan.redisson.configname:redisson-config.yml}")
 	private String configYmlName;
 
 	/**

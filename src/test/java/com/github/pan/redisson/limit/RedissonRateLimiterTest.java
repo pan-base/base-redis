@@ -14,10 +14,14 @@ public class RedissonRateLimiterTest {
 
 	@Autowired
 	private RedissonRateLimiter redissonRateLimiter;
-	
+
 	@Test
 	public void test() {
-		redissonRateLimiter.acquire("a01", 1, 2);
+		for (int i = 0; i < 10; i++) {
+			boolean valid = redissonRateLimiter.acquire("a01", 1, 2);
+			System.out.println(String.format("%s:%s", i,valid));
+		}
+
 	}
 
 }
